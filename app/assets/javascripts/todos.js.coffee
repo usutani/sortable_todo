@@ -3,3 +3,20 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
   $('#datepicker').datepicker()
+
+$ ->
+  $('#sortable').sortable(
+    cursor: 'move'
+    start: (event, ui) ->
+      ui.item.css('background-color', 'orange')
+      return
+    stop: (event, ui) ->
+      ui.item.css('background-color', 'white')
+      $.post('todos/reorder'
+        $(@).sortable('serialize')
+        null, 'text'
+      )
+      return
+  )
+  $('#sortable').disableSelection()
+  return

@@ -1,5 +1,9 @@
 SortableTodo::Application.routes.draw do
-  resources :todos
+  resources :todos do
+    collection do
+      post 'reorder'
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

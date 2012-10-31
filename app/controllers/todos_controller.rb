@@ -1,8 +1,15 @@
 class TodosController < ApplicationController
+  def reorder
+    params[:row].each_with_index do |row, i|
+      Todo.update(row, seq: i)
+    end
+    head :ok
+  end
+
   # GET /todos
   # GET /todos.json
   def index
-    @todos = Todo.all
+    @todos = Todo.order('seq')
 
     respond_to do |format|
       format.html # index.html.erb
