@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  task: MyString
+  due: 2012-10-31
+
+two:
+  task: MyString
+  due: 2012-10-31
